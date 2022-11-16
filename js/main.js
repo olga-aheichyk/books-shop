@@ -1,12 +1,15 @@
-import { renderBasicPageLayout } from './render-page.js'
+import { renderMainLayout, renderHeaderLayout } from './render-page.js'
 import { renderBooks } from './render-books.js';
 
-renderBasicPageLayout();
+const selectedBooks = [];
+
+renderHeaderLayout();
+renderMainLayout();
 
 fetch("../books.json")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    renderBooks(data);
+    renderBooks(data, selectedBooks);
   });

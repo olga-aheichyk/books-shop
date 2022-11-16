@@ -13,6 +13,57 @@ body {
 	justify-content: space-between;
 }
 
+.cart__wrapper {
+	position: relative;
+
+	img {
+		height: 100%;
+	}
+}
+
+.cart__round {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background-color: #5ECE7B;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: -5px;
+	right: -10px;
+}
+
+.fixed-cart {
+	position: fixed;
+	bottom: 15px;
+	right: 30px;
+}
+
+.fixed-cart__icon-wrapper {
+	width: 100px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #5ECE7B;
+	border-radius: 50%;
+}
+
+.fixed-cart__icon {
+	height: 60px;
+}
+
+.fixed-cart__text {
+	width: 100px;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 16px;
+}
+
 .main {
 	max-width: 1300px;
 	padding-left: 10px;
@@ -21,6 +72,7 @@ body {
 	margin-right: auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	//position: relative;
 }
 
 .visually-hidden {
@@ -54,12 +106,20 @@ body {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 20px;
+
+	@media (max-width: 1500px) {
+		margin-right: 100px;
+	}
+
+	@media (max-width: 1350px) {
+		margin-left: 100px;
+	}
 }
 
 .book {
 	display: grid;
-	width: 600px;
-	grid-template-columns: 315px 1fr 1fr;
+	width: 550px;
+	grid-template-columns: 250px 1fr 1fr;
 	grid-template-rows: 60px 80px auto 50px;
 	gap: 0 10px;
 	font-family: 'Raleway', sans-serif;
@@ -73,7 +133,7 @@ body {
 .book__image {
 	grid-column: 1;
 	grid-row: 1 / -1;
-	max-width: 315px;
+	max-width: 250px;
 	height: auto;
 }
 
