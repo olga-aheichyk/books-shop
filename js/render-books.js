@@ -19,9 +19,8 @@ const createCard = (book) => {
   catalogItem.setAttribute("id", id);
   catalogItem.classList.add("catalog__item");
   catalogItem.classList.add("book");
-  catalogItem.setAttribute("draggable", true);
   catalogItem.innerHTML = `
-		<img class="book__image" src=${imageLink}>
+		<img class="book__image" src=${imageLink} draggable="true">
 		<p class="book__author">${author}</p>
 		<p class="book__name">${title}</p>
 		<p class="book__price">$ ${price}</p>
@@ -37,9 +36,9 @@ const createCard = (book) => {
   return catalogItem;
 };
 
-const addBookToCart = (evt, books, selectedBooks) => {
+export const addBookToCart = (id, books, selectedBooks) => {
   const selectedBook = books.find(
-    (book) => book.id === evt.target.closest("article").id
+    (book) => book.id === id
   );
   selectedBooks.push(selectedBook);
 
@@ -49,14 +48,16 @@ const addBookToCart = (evt, books, selectedBooks) => {
 };
 
 const addEventListenersToCard = (card, books, selectedBooks) => {
-  card.addEventListener("dragend", (evt) => {
-    addBookToCart(evt, books, selectedBooks);
+  card.addEventListener("dragstart", (evt) => {
+    evt.dataTransfer.clearData();
+    evt.dataTransfer.setData("bookId/plain", evt.target.closest("article").id);
   });
 
   const addToCartButton = card.querySelector(".add-to-cart");
 
   addToCartButton.addEventListener("click", (evt) => {
-    addBookToCart(evt, books, selectedBooks);
+    const id = evt.target.closest("article").id;
+    addBookToCart(id, books, selectedBooks);
   });
 
   const showMoreButton = card.querySelector(".show-more-button");
