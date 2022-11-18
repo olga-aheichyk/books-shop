@@ -86,7 +86,7 @@ export const renderMainOrderLayout = (orderedBooks) => {
   orderedBooks.forEach((book) => {
     const card = createOrderCard(book);
     fragment.appendChild(card);
-    //addEventListenersToCard(card, books, selectedBooks);
+    addEventListenersToOrderedBooks(card, orderedBooks);
   });
 
   const orderTotal = document.createElement('div');
@@ -104,3 +104,20 @@ export const renderMainOrderLayout = (orderedBooks) => {
 
   main.appendChild(mainFragment);
 };
+
+const addEventListenersToOrderedBooks = (card, orderedBooks) => {
+  const closeButton = card.querySelector(".book__close");
+
+  closeButton.addEventListener('click', (evt) => {
+    const id = evt.target.closest('div').id;
+
+    const deletingBookIndex = orderedBooks.findIndex((book) => book.id === +id);
+    orderedBooks.splice(deletingBookIndex, 1);
+
+    const updatedOrderedBooks = orderedBooks;
+
+    const main = document.querySelector(".main");
+    main.textContent = "";
+    renderMainOrderLayout(updatedOrderedBooks);
+  })
+}
