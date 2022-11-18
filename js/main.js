@@ -7,7 +7,7 @@ let books = [];
 renderHeaderLayout();
 renderMainLayout();
 
-fetch("../books.json")
+fetch("./books.json")
   .then((response) => {
     return response.json();
   })
