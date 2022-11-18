@@ -1,9 +1,9 @@
 export const renderHeaderLayout = () => {
   const header = `
     <header class="header">
-      <img class="header__logo" src="../assets/icons/read-book-icon.svg" alt="book logo">
+      <img class="header__logo" src="./assets/icons/read-book-icon.svg" alt="book logo">
       <div class="cart__wrapper">
-        <img class="cart" src="../assets/icons/cart.svg" alt="go to cart">
+        <img class="cart" src="./assets/icons/cart.svg" alt="go to cart">
         <div class="cart__round visually-hidden"></div>
       </div>
     </header>
@@ -20,7 +20,7 @@ export const renderMainLayout = () => {
   fixedCart.classList.add('fixed-cart');
   fixedCart.innerHTML = `
     <div class="fixed-cart__icon-wrapper">
-			<img class="fixed-cart__icon" src="../assets/icons/cart-white.svg" alt="go to cart">
+			<img class="fixed-cart__icon" src="./assets/icons/cart-white.svg" alt="go to cart">
 		</div>
 		<div class="fixed-cart__text">Drag book to add it to cart</div>
   `;
@@ -63,7 +63,7 @@ const createOrderCard = (book) => {
 		<p class="book__author">${author}</p>
 		<p class="book__name">${title}</p>
 		<p class="book__price">$ ${price}</p>
-		<img class="book__close" src="../assets/icons/close-icon.png" alt="delete from cart">
+		<img class="book__close" src="./assets/icons/close-icon.png" alt="delete from cart">
 	`;
 
   return orderItem;

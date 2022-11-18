@@ -50,7 +50,7 @@ export const addBookToCart = (id, books, selectedBooks) => {
   cartRound.textContent = selectedBooks.length;
 };
 
-export const addEventListenersToList = (card, books, selectedBooks) => {
+const addEventListenersToCard = (card, books, selectedBooks) => {
   const cardImage = card.querySelector(".book__image");
 
   cardImage.addEventListener("dragstart", (evt) => {
