@@ -12,6 +12,20 @@ export const renderHeaderLayout = () => {
   document.body.insertAdjacentHTML("afterbegin", header);
 };
 
+const updateHeader = (selectedBooks) => {
+  const cartRound = document.querySelector(".cart__round");
+
+  const isEmptyCart = selectedBooks.length === 0;
+
+  if (isEmptyCart) {
+    cartRound.classList.add("visually-hidden");
+    return;
+  }
+
+  cartRound.textContent = selectedBooks.length;
+
+}
+
 export const renderMainLayout = () => {
   const mainFragment = document.createDocumentFragment();
   const main = document.querySelector(".main");
@@ -118,6 +132,8 @@ const addEventListenersToOrderedBooks = (card, orderedBooks) => {
 
     const main = document.querySelector(".main");
     main.textContent = "";
+
+    updateHeader(updatedOrderedBooks);
     renderMainOrderLayout(updatedOrderedBooks);
   })
 }
