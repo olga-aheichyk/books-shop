@@ -1,4 +1,4 @@
-import { renderMainLayout, renderHeaderLayout } from './render-page.js'
+import { renderMainLayout, renderHeaderLayout, renderMainOrderLayout } from './render-page.js'
 import { addBookToCart, renderBooks } from './render-books.js';
 
 const selectedBooks = [];
@@ -24,6 +24,13 @@ fetch("../books.json")
 
   fixedCartButton.addEventListener("drop", (evt) => {
     evt.preventDefault();
-    const id = evt.dataTransfer.getData("bookId");
+    const id = evt.dataTransfer.getData("text");
+    console.log("id", id);
     addBookToCart(id, books, selectedBooks);
   });
+
+  fixedCartButton.addEventListener('click', () => {
+    const main = document.querySelector('.main');
+    main.textContent = '';
+    renderMainOrderLayout(selectedBooks);
+  })

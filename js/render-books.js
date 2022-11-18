@@ -38,8 +38,11 @@ const createCard = (book) => {
 
 export const addBookToCart = (id, books, selectedBooks) => {
   const selectedBook = books.find(
-    (book) => book.id === id
+    (book) => book.id === +id
   );
+
+  console.log(id);
+  console.log(selectedBook);
   selectedBooks.push(selectedBook);
 
   const cartRound = document.querySelector(".cart__round");
@@ -47,10 +50,12 @@ export const addBookToCart = (id, books, selectedBooks) => {
   cartRound.textContent = selectedBooks.length;
 };
 
-const addEventListenersToCard = (card, books, selectedBooks) => {
-  card.addEventListener("dragstart", (evt) => {
+export const addEventListenersToList = (card, books, selectedBooks) => {
+  const cardImage = card.querySelector(".book__image");
+
+  cardImage.addEventListener("dragstart", (evt) => {
     evt.dataTransfer.clearData();
-    evt.dataTransfer.setData("bookId/plain", evt.target.closest("article").id);
+    evt.dataTransfer.setData("text/plain", evt.target.closest("article").id);
   });
 
   const addToCartButton = card.querySelector(".add-to-cart");

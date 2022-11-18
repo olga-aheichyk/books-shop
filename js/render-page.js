@@ -50,3 +50,57 @@ export const renderMainLayout = () => {
   mainFragment.appendChild(catalogSection);
   main.appendChild(mainFragment);
 };
+
+const createOrderCard = (book) => {
+  const { id, author, imageLink, title, price } = book;
+
+  const orderItem = document.createElement("div");
+  orderItem.setAttribute("id", id);
+  orderItem.classList.add("order__item");
+  orderItem.classList.add("book");
+  orderItem.innerHTML = `
+		<img class="book__image" src=${imageLink}>
+		<p class="book__author">${author}</p>
+		<p class="book__name">${title}</p>
+		<p class="book__price">$ ${price}</p>
+		<img class="book__close" src="../assets/icons/close-icon.png" alt="delete from cart">
+	`;
+
+  return orderItem;
+};
+
+export const renderMainOrderLayout = (orderedBooks) => {
+  const mainFragment = document.createDocumentFragment();
+  const main = document.querySelector(".main");
+
+  const mainTitle = document.createElement("h1");
+  mainTitle.classList.add("main__title");
+  mainTitle.textContent = "Ordered Books";
+  mainFragment.appendChild(mainTitle);
+
+  const orderListSection = document.createElement("section");
+  orderListSection.classList.add("order__list");
+
+  const fragment = document.createDocumentFragment();
+
+  orderedBooks.forEach((book) => {
+    const card = createOrderCard(book);
+    fragment.appendChild(card);
+    //addEventListenersToCard(card, books, selectedBooks);
+  });
+
+  const orderTotal = document.createElement('div');
+  orderTotal.classList.add("order__bottom");
+  orderTotal.innerHTML = `
+    <div class="order__total">Total: $<span class="order__total-sum">${orderedBooks.reduce((sum, book) => book.price + sum, 0)}</span></div>
+		<a href="./delivery-form.html" target="_blank" class="order__button">Confirm Order</a>
+  `;
+
+  fragment.appendChild(orderTotal);
+
+  orderListSection.appendChild(fragment);
+
+  mainFragment.appendChild(orderListSection);
+
+  main.appendChild(mainFragment);
+};

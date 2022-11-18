@@ -53,6 +53,11 @@ body {
 	border-radius: 50%;
 	margin-left: 50px;
 	margin-top: 150px;
+
+	&:hover {
+		cursor: pointer;
+		opacity: 80%;
+	}
 }
 
 .fixed-cart__icon {
@@ -75,7 +80,6 @@ body {
 	margin-right: auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	//position: relative;
 }
 
 .visually-hidden {
@@ -225,6 +229,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
+	margin-top: 30px;
 }
 
 .order__bottom {
@@ -253,6 +258,8 @@ body {
 
 	&:hover {
 		opacity: 80%;
+		text-decoration: none;
+		color: #ffffff;
 	}
 }
 
