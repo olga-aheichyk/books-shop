@@ -12,10 +12,17 @@ const handleChangeFormInputsValidity = () => {
 
   invalidInputs.forEach((input) => {
     input.style.border = "1px solid red";
+    // input.setCustomValidity("The field is invalid");
+
+    // input.addEventListener('blur', () => {
+    //   input.reportValidity();
+    // })
   });
+
 
   validInputs.forEach((input) => {
     input.style.border = "1px solid grey";
+    // input.setCustomValidity("");
   });
 
   if (!invalidInputs.length) {
