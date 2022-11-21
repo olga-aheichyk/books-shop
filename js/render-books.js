@@ -41,8 +41,6 @@ export const addBookToCart = (id, books, selectedBooks) => {
     (book) => book.id === +id
   );
 
-  console.log(id);
-  console.log(selectedBook);
   selectedBooks.push(selectedBook);
 
   const cartRound = document.querySelector(".cart__round");

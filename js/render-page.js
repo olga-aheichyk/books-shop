@@ -1,7 +1,9 @@
 export const renderHeaderLayout = () => {
   const header = `
     <header class="header">
-      <img class="header__logo" src="./assets/icons/read-book-icon.svg" alt="book logo">
+      <a href="./index.html">
+        <img class="header__logo" src="./assets/icons/read-book-icon.svg" alt="book logo">
+      </a>
       <div class="cart__wrapper">
         <img class="cart" src="./assets/icons/cart.svg" alt="go to cart">
         <div class="cart__round visually-hidden"></div>

@@ -14,7 +14,9 @@
 </head>
 <body>
 	<header class="header">
-		<img class="header__logo" src="./assets/icons/read-book-icon.svg" alt="book logo">
+		<a href="./index.html">
+			<img class="header__logo" src="./assets/icons/read-book-icon.svg" alt="book logo">
+		</a>
 		<img class="cart" src="./assets/icons/cart.svg" alt="go to cart">
 	</header>
 	<main class="main">
@@ -30,7 +32,7 @@
 			</div>
 			<div class="input__wrapper">
 				<label class="input__label" for="delivery_date">Date of delivery <sup>*</sup></label>
-				<input class="input__area" type="date" name="delivery date" id="delivery_date" required>
+				<input class="input__area" type="date" name="delivery_date" id="delivery_date" required>
 			</div>
 			<div class="input__wrapper">
 				<label class="input__label" for="street">Street <sup>*</sup></label>
@@ -38,41 +40,41 @@
 			</div>
 			<div class="input__wrapper">
 				<label class="input__label" for="street number">Street number <sup>*</sup></label>
-				<input class="input__area" type="number" name="street number" min="0" id="street_number" required>
+				<input class="input__area" type="number" name="street_number" min="0" id="street_number" required>
 			</div>
 			<div class="input__wrapper">
 				<label class="input__label" for="flat number">Flat number <sup>*</sup></label>
-				<input type="number" name="flat number" min="0" pattern="\d+[-]+\d" id="flat_number" required>
+				<input type="text" pattern="^[^\-][0-9\-]*$" name="flat_number" id="flat_number" required>
 			</div>
 
 			<div class="delivery__details">
 				<div class="delivery__fieldset">
 					<div class="delivery__fieldset-name">Choose the payment type <sup>*</sup></div>
 					<div class="input__wrapper input__wrapper--radio">
-						<input type="radio" name="payment type" id="cash" value="cash" checked>
+						<input type="radio" name="payment_type" id="cash" value="cash">
 						<label class="input__label" for="cash">Cash</label>
 					</div>
 					<div class="input__wrapper input__wrapper--radio">
-						<input type="radio" name="payment type" id="card" value="card">
+						<input type="radio" name="payment_type" id="card" value="card">
 						<label class="input__label" for="card">Card</label>
 					</div>
 				</div>
-				<div class="delivery__fieldset">
+				<div class="delivery__fieldset gift">
 					<div class="delivery__fieldset-name">Choose 2 gifts</div>
 					<div class="input__wrapper input__wrapper--checkbox">
-						<input type="checkbox" name="gift" id="pack" value="pack">
+						<input class="input__checkbox" type="checkbox" name="gift" id="pack" value="pack">
 						<label class="input__label" for="pack">Pack as a gift</label>
 					</div>
 					<div class="input__wrapper input__wrapper--checkbox">
-						<input type="checkbox" name="gift" id="postcard" value="postcard">
+						<input class="input__checkbox" type="checkbox" name="gift" id="postcard" value="postcard">
 						<label class="input__label" for="postcard">Add postcard</label>
 					</div>
 					<div class="input__wrapper input__wrapper--checkbox">
-						<input type="checkbox" name="gift" id="discount" value="discount">
+						<input class="input__checkbox" type="checkbox" name="gift" id="discount" value="discount">
 						<label class="input__label" for="discount">Provide 2% discount to the next time</label>
 					</div>
 					<div class="input__wrapper input__wrapper--checkbox">
-						<input type="checkbox" name="gift" id="pen" value="pen">
+						<input class="input__checkbox" type="checkbox" name="gift" id="pen" value="pen">
 						<label class="input__label" for="pen">Branded pen or pencil</label>
 					</div>
 				</div>
